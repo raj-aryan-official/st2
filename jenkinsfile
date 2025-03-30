@@ -8,7 +8,7 @@ pipeline{
             steps{
                 script {
                     echo 'Building the project...'
-                    sh 'mvn clean package -DskipTests'
+                    bat 'mvn clean package -DskipTests'
                 }
             }
         }
@@ -16,7 +16,7 @@ pipeline{
             steps{
                 script {
                     echo 'Running unit tests...'
-                    sh 'mvn test'
+                    bat 'mvn test'
                 }
             }
         }
@@ -24,7 +24,7 @@ pipeline{
             steps{
                 script {
                     echo 'Delivering the project...'
-                    sh 'mvn deploy'
+                    bat 'mvn deploy'
                 }
             }
         }  
