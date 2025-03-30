@@ -1,0 +1,32 @@
+pipeline{
+    agent any
+    tools {
+        maven 'Maven 3.6.3'
+    }
+    stages{
+        stage('Build'){
+            steps{
+                script {
+                    echo 'Building the project...'
+                    sh 'mvn clean package -DskipTests'
+                }
+            }
+        }
+        stage('Test'){
+            steps{
+                script {
+                    echo 'Running unit tests...'
+                    sh 'mvn test'
+                }
+            }
+        }
+        stage('Deliver'){
+            steps{
+                script {
+                    echo 'Delivering the project...'
+                    sh 'mvn deploy'
+                }
+            }
+        }  
+    }
+}
